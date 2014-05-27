@@ -40,6 +40,7 @@ github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
 
 github "git",         "2.3.1"
 github "homebrew",    "1.9.2"
+github "sudo",        "1.0.0"
 github "xquartz",     "1.1.1"
 github "openssl",     "1.0.0"
 github "inifile",     "1.0.3", :repo => "puppetlabs/puppetlabs-inifile"
