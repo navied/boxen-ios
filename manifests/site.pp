@@ -1,6 +1,5 @@
 require boxen::environment
 require homebrew
-require gcc
 
 Exec {
   group       => 'staff',
@@ -53,26 +52,23 @@ Homebrew::Formula <| |> -> Package <| |>
 
 node default {
   # core modules, needed for most things
-  include dnsmasq
   include git
-  include hub
-  include nginx
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
     fail('Please enable full disk encryption and try again')
   }
 
-  # node versions
-  include nodejs::v0_6
-  include nodejs::v0_8
-  include nodejs::v0_10
 
   # default ruby versions
-  ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.0': }
-  ruby::version { '2.1.1': }
+  ruby::version { '2.0.0-p481': }
+
+  # ensure a gem is installed for all ruby versions
+  ruby_gem { 'cocoapods':
+  gem          => 'cocoapods',
+  version      => '~> 0.33.1',
+  ruby_version => '*',
+  }
 
   # common, useful packages
   package {

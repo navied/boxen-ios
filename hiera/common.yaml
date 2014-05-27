@@ -17,7 +17,7 @@ ruby::rbenv_plugins:
     ensure: v20131225.1
     source: sstephenson/ruby-build
 ruby::version::alias:
-  2.0.0: 2.0.0-p353
+  2.0.0: 2.0.0-p481
 
 # See https://github.com/boxen/puppet-java for docs
 java::update_version: 51
