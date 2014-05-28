@@ -26,6 +26,8 @@ if hash rbenv 2>/dev/null; then
         exit 1;
 fi
 
+echo "Please enter your sudo password below:"
+
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:staff /opt/boxen
 git clone https://github.com/navied/boxen-ios /opt/boxen/repo
