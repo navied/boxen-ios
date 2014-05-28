@@ -26,7 +26,7 @@ if hash rbenv 2>/dev/null; then
         exit 1;
 fi
 
-echo "Please enter your sudo password below:"
+echo "You might be asked to type in your sudo password below."
 
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:staff /opt/boxen
@@ -36,6 +36,8 @@ echo "Starting Boxen installation of ruby, follow all onscreen dialogs"
 echo "Notice: This can take upwards of 30 to 60 minutes depending on computer speed. Grab a coffee!"
 
 /opt/boxen/repo/script/boxen
+
+until !!; do done
 
 echo "[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh" >> ~/.bashrc
 
