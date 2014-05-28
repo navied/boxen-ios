@@ -11,10 +11,6 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
 load File.expand_path "../boxen.rb", __FILE__
 
-# Load custom config.
-
-load File.expand_path "../ruby.rb", __FILE__
-
 # Load local config if it exists. This file is ignored by Git, and can
 # be used for personal config.
 
