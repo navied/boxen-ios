@@ -59,7 +59,6 @@ node default {
     fail('Please enable full disk encryption and try again')
   }
 
-
   # default ruby versions
   ruby::version { '2.0.0-p481': }
 
