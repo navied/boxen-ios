@@ -15,10 +15,24 @@ if hash rbenv 2>/dev/null; then
         exit 1;
 fi
 
-echo "Starting Boxen installation of ruby"
+sudo mkdir -p /opt/boxen
+sudo chown ${USER}:staff /opt/boxen
+git clone https://github.com/navied/boxen-ios /opt/boxen/repo
 
-./script/Boxen
+echo "Starting Boxen installation of ruby, follow all onscreen dialogs"
+
+./opt/boxen/repo/script/boxen
 
 echo "[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh" >> ~/.bashrc
 
 source ~/.bashrc
+
+echo "Setting up Ruby environment"
+
+rbenv global 2.0.0-p481
+gem install cocoapods -v 0.33.1
+rbenv rehash
+
+echo "Installing pods"
+
+pod install
