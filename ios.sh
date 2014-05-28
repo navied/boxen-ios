@@ -1,12 +1,20 @@
 #!/bin/bash
-echo "iOS Development environment setup"
-echo "Version 0.1"
-echo "Created by Navied Shoushtarian"
-echo "   ____    ___ __  _ _ _    ___ _____  __  ___     _           _        _                    _   ";
-echo "  / __ \  |_  )  \/ | | |  / __| __\ \/ / | __|_ _| |_ ___ _ _| |_ __ _(_)_ _  _ __  ___ _ _| |_ ";
-echo " / / _| \  / / () | |_  _| \__ \ _| >  <  | _|| ' \  _/ -_) '_|  _/ _\` | | ' \| '  \/ -_) ' \  _|";
-echo " \ \__| / /___\__/|_| |_|  |___/_| /_/\_\ |___|_||_\__\___|_|  \__\__,_|_|_||_|_|_|_\___|_||_\__|";
-echo "  \____/                                                                                         ";
+#functions
+echo_c()
+{
+  w=$(stty size | cut -d" " -f2)       # width of the terminal
+  l=${#1}                              # length of the string
+  printf "%"$((l+(w-l)/2))"s\n" "$1"   # print string padded to proper width (%Ws)
+}
+
+echo_c "iOS Development Environment Setup"
+echo_c "Version 0.1"
+echo_c "Created by Navied Shoushtarian"
+echo_c "   ____    ___ __  _ _ _    ___ _____  __  ___     _           _        _                    _   ";
+echo_c "  / __ \  |_  )  \/ | | |  / __| __\ \/ / | __|_ _| |_ ___ _ _| |_ __ _(_)_ _  _ __  ___ _ _| |_ ";
+echo_c " / / _| \  / / () | |_  _| \__ \ _| >  <  | _|| ' \  _/ -_) '_|  _/ _\` | | ' \| '  \/ -_) ' \  _|";
+echo_c " \ \__| / /___\__/|_| |_|  |___/_| /_/\_\ |___|_||_\__\___|_|  \__\__,_|_|_||_|_|_|_\___|_||_\__|";
+echo_c "  \____/                                                                                         ";
 
 if hash rvm 2>/dev/null; then
         echo "rvm installation found please uninstall with rvm implode before continuing. Aborting."
@@ -43,4 +51,4 @@ echo "Installing pods"
 
 pod install
 
-echo "If no errors are seen you are all set to run the project!"
+echo "Done!"
